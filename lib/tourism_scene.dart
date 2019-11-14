@@ -1,9 +1,35 @@
-
 import 'package:flutter/material.dart';
 
-class RootLayout extends StatelessWidget {
+class StarLayout extends StatefulWidget {
+  @override
+  StarLayoutState createState() => StarLayoutState();
+}
+
+class StarLayoutState extends State<StarLayout> {
   static int starsCount = 0;
 
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.star),
+          color: Colors.amber,
+          onPressed: incrementStars,
+        ),
+        Text("$starsCount"),
+      ],
+    );
+  }
+
+  void incrementStars() {
+    setState(() {
+      starsCount++;
+    });
+  }
+}
+
+class RootLayout extends StatelessWidget {
   final Widget titleWidget = Container(
     padding: EdgeInsets.only(right: 32, top: 16, bottom: 16, left: 16),
     child: Row(
@@ -22,15 +48,11 @@ class RootLayout extends StatelessWidget {
               Text(
                 "Oran, Algeria",
                 style: TextStyle(color: Colors.grey),
-              )
+              ),
+              StarLayout(),
             ],
           ),
         ),
-        Icon(
-          Icons.star,
-          color: Colors.amber,
-        ),
-        Text("$starsCount"),
       ],
     ),
   );
@@ -39,13 +61,13 @@ class RootLayout extends StatelessWidget {
     margin: EdgeInsets.all(16),
     child: Text(
       "La place du 1er Novembre 1954 (ex-place d Armes) est considéré comme le cœur historique de la ville d Oran, "
-          "elle est à la croisée des chemins de plusieurs routes que vous veniez du port, du front de mer et du centre-ville."
-          "En son centre, on trouve une obélisque à l effigie de l émir Abdelkader, surmontée par une sculpture nommée"
-          " « La Gloire » du sculpteur français Aimé-Jules Dalou."
-          "Entourant la place avec leur architecture coloniale, les majestueux"
-          "édifices historiques que sont l hôtel de ville et l op"
-          "éra veillent sur la place depuis plus d un siècle."
-          "A noté qu une station de tramway est présente au niveau de la place.",
+      "elle est à la croisée des chemins de plusieurs routes que vous veniez du port, du front de mer et du centre-ville."
+      "En son centre, on trouve une obélisque à l effigie de l émir Abdelkader, surmontée par une sculpture nommée"
+      " « La Gloire » du sculpteur français Aimé-Jules Dalou."
+      "Entourant la place avec leur architecture coloniale, les majestueux"
+      "édifices historiques que sont l hôtel de ville et l op"
+      "éra veillent sur la place depuis plus d un siècle."
+      "A noté qu une station de tramway est présente au niveau de la place.",
       softWrap: true,
     ),
   );
