@@ -11,6 +11,7 @@ class StarLayoutState extends State<StarLayout> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         IconButton(
           icon: Icon(Icons.star),
@@ -49,25 +50,24 @@ class RootLayout extends StatelessWidget {
                 "Oran, Algeria",
                 style: TextStyle(color: Colors.grey),
               ),
-              StarLayout(),
             ],
           ),
         ),
+        StarLayout(),
       ],
     ),
   );
-
   final Widget descriptionText = Container(
     margin: EdgeInsets.all(16),
     child: Text(
       "La place du 1er Novembre 1954 (ex-place d Armes) est considéré comme le cœur historique de la ville d Oran, "
-      "elle est à la croisée des chemins de plusieurs routes que vous veniez du port, du front de mer et du centre-ville."
-      "En son centre, on trouve une obélisque à l effigie de l émir Abdelkader, surmontée par une sculpture nommée"
-      " « La Gloire » du sculpteur français Aimé-Jules Dalou."
-      "Entourant la place avec leur architecture coloniale, les majestueux"
-      "édifices historiques que sont l hôtel de ville et l op"
-      "éra veillent sur la place depuis plus d un siècle."
-      "A noté qu une station de tramway est présente au niveau de la place.",
+          "elle est à la croisée des chemins de plusieurs routes que vous veniez du port, du front de mer et du centre-ville."
+          "En son centre, on trouve une obélisque à l effigie de l émir Abdelkader, surmontée par une sculpture nommée"
+          " « La Gloire » du sculpteur français Aimé-Jules Dalou."
+          "Entourant la place avec leur architecture coloniale, les majestueux"
+          "édifices historiques que sont l hôtel de ville et l op"
+          "éra veillent sur la place depuis plus d un siècle."
+          "A noté qu une station de tramway est présente au niveau de la place.",
       softWrap: true,
     ),
   );
