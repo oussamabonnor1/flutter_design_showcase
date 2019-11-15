@@ -30,7 +30,7 @@ class StarLayoutState extends State<StarLayout> {
   }
 }
 
-class RootLayout extends StatelessWidget {
+class TourismScene extends StatelessWidget {
   final Widget titleWidget = Container(
     padding: EdgeInsets.only(right: 32, top: 16, bottom: 16, left: 16),
     child: Row(
@@ -93,23 +93,30 @@ class RootLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(children: <Widget>[
-        Image.asset(
-          "images/oran.jpg",
-          fit: BoxFit.cover,
-        ),
-        titleWidget,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            buildSharingButtons(Icons.call, Colors.blue, "Call"),
-            buildSharingButtons(Icons.share, Colors.blue, "Share"),
-            buildSharingButtons(Icons.send, Colors.blue, "Send"),
-          ],
-        ),
-        descriptionText,
-      ]),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Tourism Scene"),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
+      body: Container(
+        child: ListView(children: <Widget>[
+          Image.asset(
+            "images/oran.jpg",
+            fit: BoxFit.cover,
+          ),
+          titleWidget,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              buildSharingButtons(Icons.call, Colors.blue, "Call"),
+              buildSharingButtons(Icons.share, Colors.blue, "Share"),
+              buildSharingButtons(Icons.send, Colors.blue, "Send"),
+            ],
+          ),
+          descriptionText,
+        ]),
+      ),
     );
   }
 }
