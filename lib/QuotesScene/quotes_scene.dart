@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_design_showcase/QuotesScene/Quote.dart';
+import 'QuoteCard.dart';
 
 import 'Quote.dart';
 
@@ -47,43 +48,10 @@ class _QuotesSceneState extends State<QuotesScene> {
         backgroundColor: Colors.grey[300],
       ),
       body: Column(
-        children: quotes.map((quote) => quoteCard(quote)).toList(),
+        children: quotes.map((quote) =>
+            QuoteCard(quote: quote)).toList(),
       ),
     );
   }
 
-  Widget quoteCard(Quote quote) {
-    return Expanded(
-      child: Card(
-        color: quote.color,
-        margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Center(
-              child: Text(
-                "By " + quote.quote,
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Center(
-              child: Text(
-                quote.author,
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.grey[400],
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
