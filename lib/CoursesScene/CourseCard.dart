@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
-import 'Quote.dart';
 
-class QuoteCard extends StatelessWidget {
+import 'Course.dart';
 
-  final Quote quote;
+class CourseCard extends StatelessWidget {
+  final Course course;
 
-  const QuoteCard({this.quote});
+  const CourseCard({this.course});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Card(
-        color: quote.color,
-        margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      color: course.color,
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Center(
               child: Text(
-                "By " + quote.quote,
+                "By " + course.course,
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,
@@ -29,7 +32,7 @@ class QuoteCard extends StatelessWidget {
             ),
             Center(
               child: Text(
-                quote.author,
+                course.teacher,
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.grey[400],

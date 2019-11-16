@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design_showcase/QuotesScene/quotes_scene.dart';
+import 'package:flutter_design_showcase/CoursesScene/courses_scene.dart';
 import 'package:flutter_design_showcase/profile_scene.dart';
 import 'package:flutter_design_showcase/tourism_scene.dart';
 
@@ -18,7 +18,7 @@ class MainScene extends StatelessWidget {
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        menuButton(context, QuotesScene(), "Quotes Showcase"),
+        menuButton(context, CoursesScene(), "Courses Showcase"),
         menuButton(context, ProfileScene(), "Profile Showcase"),
         menuButton(context, TourismScene(), "Tourism Showcase"),
       ],
