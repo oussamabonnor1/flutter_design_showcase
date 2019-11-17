@@ -17,6 +17,7 @@ class _CoursesSceneState extends State<CoursesScene> {
       date: "today",
       color: colors[0],
       teacherImage: "images/dude1.jpg",
+      liked: true,
     ),
     Course(
       course: "STUFF",
@@ -24,6 +25,7 @@ class _CoursesSceneState extends State<CoursesScene> {
       date: "yesterday",
       color: colors[1],
       teacherImage: "images/dude1.jpg",
+      liked: false,
     ),
     Course(
       course: "Haja",
@@ -31,6 +33,7 @@ class _CoursesSceneState extends State<CoursesScene> {
       date: "tomorrow",
       color: colors[2],
       teacherImage: "images/dude1.jpg",
+      liked: true,
     ),
   ];
 

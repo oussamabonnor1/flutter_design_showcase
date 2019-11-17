@@ -6,6 +6,7 @@ class Course{
   String teacherImage;
   String date;
   Color color;
+  bool liked;
 
-  Course({this.course, this.teacher, this.date, this.color, this.teacherImage});
+  Course({this.course, this.teacher, this.date, this.color, this.teacherImage, this.liked});
 }
