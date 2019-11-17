@@ -9,38 +9,43 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
-      ),
-      color: course.color,
-      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Center(
-              child: Text(
-                "By " + course.course,
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+    return Container(
+      width: 300,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+        color: course.color,
+        margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(
+                child: Text(
+                  course.course,
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  softWrap: true,
                 ),
               ),
-            ),
-            Center(
-              child: Text(
-                course.teacher,
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.grey[400],
-                  fontStyle: FontStyle.italic,
+              Center(
+                child: Text(
+                  "By " + course.teacher,
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.grey[400],
+                    fontStyle: FontStyle.italic,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

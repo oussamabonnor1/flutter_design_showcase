@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_design_showcase/CoursesScene/Course.dart';
-import 'CourseCard.dart';
 
 import 'Course.dart';
+import 'CourseCard.dart';
 
 class CoursesScene extends StatefulWidget {
   @override
@@ -38,21 +38,86 @@ class _CoursesSceneState extends State<CoursesScene> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           "Courses Showcase",
           style: TextStyle(color: Colors.black87),
         ),
         centerTitle: true,
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.white,
       ),
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-        children: quotes.map((quote) =>
-            CourseCard(course: quote)).toList(),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(16,25,16,0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "What would you like to learn?",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.grey[700],
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                buildCategoryIcon(Icons.music_note, Color(0xFF67CFBD), "Music"),
+                buildCategoryIcon(Icons.fitness_center, Color(0xFFEBBB99), "Fitness"),
+                buildCategoryIcon(Icons.code, Color(0xFF9DC0EB), "Code"),
+                buildCategoryIcon(Icons.brush, Color(0xFFF0A093), "Design"),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Available Courses",
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+                fontSize: 18,
+                color: Colors.grey[700],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 330,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: quotes.map((quote) => CourseCard(course: quote)).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
+  Widget buildCategoryIcon(IconData icon, Color color, String text) {
+    return Column(
+      children: <Widget>[
+        CircleAvatar(
+          radius: 30,
+          backgroundColor: color,
+          child: Icon(icon,color: Colors.white, size: 30,),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            text,
+            style: TextStyle(
+                fontSize: 16,
+                color: color,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
+    );
+  }
 }
