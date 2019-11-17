@@ -22,8 +22,33 @@ class CourseCard extends StatelessWidget {
           fit: StackFit.expand,
           children: <Widget>[
             Image(
-              image: AssetImage("images/dude1.jpg"),
+              image: AssetImage(course.teacherImage),
               fit: BoxFit.cover,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Center(
+                  child: Text(
+                    course.date,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    softWrap: true,
+                  ),
+                ),
+                Center(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+              ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,

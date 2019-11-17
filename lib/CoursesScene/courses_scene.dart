@@ -12,21 +12,26 @@ class CoursesScene extends StatefulWidget {
 class _CoursesSceneState extends State<CoursesScene> {
   List<Course> quotes = [
     Course(
-      course: "SOMETHING",
-      teacher: "someone",
+      course: "Learn Flutter",
+      teacher: "Matt David",
       date: "today",
       color: colors[0],
+      teacherImage: "images/dude1.jpg",
     ),
     Course(
-        course: "STUFF",
-        teacher: "another someone",
-        date: "yesterday",
-        color: colors[1]),
+      course: "STUFF",
+      teacher: "another someone",
+      date: "yesterday",
+      color: colors[1],
+      teacherImage: "images/dude1.jpg",
+    ),
     Course(
-        course: "Haja",
-        teacher: "someone new",
-        date: "tomorrow",
-        color: colors[2]),
+      course: "Haja",
+      teacher: "someone new",
+      date: "tomorrow",
+      color: colors[2],
+      teacherImage: "images/dude1.jpg",
+    ),
   ];
 
   static List<Color> colors = <Color>[
@@ -48,7 +53,7 @@ class _CoursesSceneState extends State<CoursesScene> {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16,25,16,0),
+        padding: const EdgeInsets.fromLTRB(16, 25, 16, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -67,7 +72,8 @@ class _CoursesSceneState extends State<CoursesScene> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 buildCategoryIcon(Icons.music_note, Color(0xFF67CFBD), "Music"),
-                buildCategoryIcon(Icons.fitness_center, Color(0xFFEBBB99), "Fitness"),
+                buildCategoryIcon(
+                    Icons.fitness_center, Color(0xFFEBBB99), "Fitness"),
                 buildCategoryIcon(Icons.code, Color(0xFF9DC0EB), "Code"),
                 buildCategoryIcon(Icons.brush, Color(0xFFF0A093), "Design"),
               ],
@@ -90,7 +96,8 @@ class _CoursesSceneState extends State<CoursesScene> {
               height: 330,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: quotes.map((quote) => CourseCard(course: quote)).toList(),
+                children:
+                    quotes.map((quote) => CourseCard(course: quote)).toList(),
               ),
             ),
           ],
@@ -105,16 +112,18 @@ class _CoursesSceneState extends State<CoursesScene> {
         CircleAvatar(
           radius: 30,
           backgroundColor: color,
-          child: Icon(icon,color: Colors.white, size: 30,),
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 30,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
             text,
             style: TextStyle(
-                fontSize: 16,
-                color: color,
-                fontWeight: FontWeight.bold),
+                fontSize: 16, color: color, fontWeight: FontWeight.bold),
           ),
         ),
       ],
