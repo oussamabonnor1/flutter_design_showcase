@@ -100,7 +100,11 @@ class _CoursesSceneState extends State<CoursesScene> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children:
-                    quotes.map((quote) => CourseCard(course: quote)).toList(),
+                    quotes.map((quote) => CourseCard(course: quote, delete: (){
+                      setState(() {
+                        quotes.remove(quote);
+                      });
+                    })).toList(),
               ),
             ),
           ],

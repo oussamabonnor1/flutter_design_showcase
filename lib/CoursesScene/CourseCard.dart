@@ -4,8 +4,9 @@ import 'Course.dart';
 
 class CourseCard extends StatefulWidget {
   final Course course;
+  final Function delete;
 
-  const CourseCard({this.course});
+  const CourseCard({this.course, this.delete});
 
   @override
   _CourseCardState createState() => _CourseCardState();
@@ -39,7 +40,9 @@ class _CourseCardState extends State<CourseCard> {
                   IconButton(
                     icon: Icon(
                       Icons.favorite,
-                      color: widget.course.liked ? Colors.redAccent : Colors.grey[400],
+                      color: widget.course.liked
+                          ? Colors.redAccent
+                          : Colors.grey[400],
                       size: 30,
                     ),
                     onPressed: () {
@@ -75,6 +78,11 @@ class _CourseCardState extends State<CourseCard> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                ),
+                FlatButton.icon(
+                  onPressed: widget.delete,
+                  icon: Icon(Icons.report),
+                  label: Text("Report Course"),
                 ),
                 SizedBox(
                   height: 30,
