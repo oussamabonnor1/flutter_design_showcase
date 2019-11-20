@@ -5,10 +5,15 @@ import 'package:flutter_design_showcase/tourism_scene.dart';
 
 void main() {
   runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: "Flutter Design Showcase",
-    home: MainScene(),
-  ));
+      debugShowCheckedModeBanner: false,
+      title: "Flutter Design Showcase",
+      initialRoute: "/",
+      routes: {
+        "/": (context) => MainScene(),
+        "/profile_scene": (context) => ProfileScene(),
+        "/tourism_scene": (context) => TourismScene(),
+        "/courses_scene": (context) => CoursesScene(),
+      }));
 }
 
 class MainScene extends StatelessWidget {
@@ -18,21 +23,18 @@ class MainScene extends StatelessWidget {
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        menuButton(context, CoursesScene(), "Courses Showcase"),
-        menuButton(context, ProfileScene(), "Profile Showcase"),
-        menuButton(context, TourismScene(), "Tourism Showcase"),
+        menuButton(context, "/courses_scene", "Courses Showcase"),
+        menuButton(context, "/profile_scene", "Profile Showcase"),
+        menuButton(context, "/tourism_scene", "Tourism Showcase"),
       ],
     ));
   }
 
-  Widget menuButton(BuildContext context, Widget scene, String text) {
+  Widget menuButton(BuildContext context, String route, String text) {
     return Center(
       child: RaisedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => scene),
-          );
+          Navigator.pushNamed(context, route);
         },
         child: Text(text),
       ),
