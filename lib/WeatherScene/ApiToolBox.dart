@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 
 class ApiToolBox {
-
   String time;
+  bool pause = false;
+  DateTime now;
 
   Future<void> getAPI() async {
     Response response =
@@ -14,11 +14,13 @@ class ApiToolBox {
     String time = result["datetime"];
     String offset = result["utc_offset"].toString().substring(1, 3);
 
-    DateTime now = DateTime.parse(time);
+    now = DateTime.parse(time);
     now = now.add(Duration(hours: int.parse(offset)));
     this.time = now.toString();
-    print("time "+ time);
-    print("now "+now.toString());
-    print("offset: "+offset);
+  }
+
+  void incrementTime() async {
+      now = now.add(Duration(seconds: 1));
+      await Future.delayed(Duration(seconds: 1));
   }
 }

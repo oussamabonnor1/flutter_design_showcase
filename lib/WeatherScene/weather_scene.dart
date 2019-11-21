@@ -7,11 +7,9 @@ class WeatherScene extends StatefulWidget {
 }
 
 class _WeatherSceneState extends State<WeatherScene> {
-
   String time = "Loading...";
-  int timer = 0;
 
-  void getTime() async{
+  void getTime() async {
     ApiToolBox api = ApiToolBox();
     await api.getAPI();
     setState(() {
@@ -19,19 +17,10 @@ class _WeatherSceneState extends State<WeatherScene> {
     });
   }
 
-  void clock() async{
-      await Future.delayed(Duration(seconds: 1));
-      setState(() {
-        timer ++;
-      });
-      clock();
-  }
-
   @override
   void initState() {
     super.initState();
     getTime();
-    clock();
   }
 
   @override
@@ -45,7 +34,6 @@ class _WeatherSceneState extends State<WeatherScene> {
       body: Column(
         children: <Widget>[
           Text("$time"),
-        Text("$timer"),
         ],
       ),
     );
