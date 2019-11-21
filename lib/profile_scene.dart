@@ -6,6 +6,14 @@ class ProfileScene extends StatefulWidget {
 }
 
 class _ProfileSceneState extends State<ProfileScene> {
+  int videoCounter;
+
+  @override
+  void initState() {
+    super.initState();
+    videoCounter = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +120,7 @@ class _ProfileSceneState extends State<ProfileScene> {
                           height: 10,
                         ),
                         Text(
-                          "+1780",
+                          "+$videoCounter",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.amberAccent,
@@ -224,7 +232,7 @@ class _ProfileSceneState extends State<ProfileScene> {
         IconButton(
           icon: Icon(Icons.person_add),
           color: !follow ? Colors.grey[400] : color,
-          onPressed: (){
+          onPressed: () {
             setState(() {
               follow = !follow;
             });
@@ -243,5 +251,10 @@ class _ProfileSceneState extends State<ProfileScene> {
         ),
       ],
     );
+  }
+
+  void timeCounter() async {
+    await Future.delayed(Duration(seconds: 1), () { return videoCounter++;});
+      timeCounter();
   }
 }
