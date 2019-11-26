@@ -8,6 +8,7 @@ class ShoppingScene extends StatefulWidget {
   static Color unselectedColor = Color(0xFF68837E);
   static Color accentColor = Color(0xFFDABBA7);
   static Color textDarkColor = Color(0xFF5E5E5E);
+  static Color textLightColor = Color(0xFFC4C4C4);
 
   @override
   _ShoppingSceneState createState() => _ShoppingSceneState();
@@ -16,7 +17,7 @@ class ShoppingScene extends StatefulWidget {
 class _ShoppingSceneState extends State<ShoppingScene> {
   List<String> categories = ["All", "Shoes", "Cars", "Food", "Pets", "Drinks"];
   List<ShoppingModel> products = [
-    new ShoppingModel("Nike sneekers", 250, AssetImage("images/shoe1.png"))
+    new ShoppingModel("Nike sneekers", 250, AssetImage("images/shoe1.png"), "Confortable", "Stylish")
   ];
   int selectedCategories = 0;
 
