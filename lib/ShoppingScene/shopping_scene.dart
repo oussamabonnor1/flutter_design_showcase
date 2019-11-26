@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_design_showcase/ShoppingScene/shopping_card.dart';
+import 'package:flutter_design_showcase/ShoppingScene/shopping_model.dart';
 
 class ShoppingScene extends StatefulWidget {
   static Color backgroundColor = Color(0xFF7C9A9A);
   static Color highlightColor = Color(0xFF8CA7A2);
   static Color unselectedColor = Color(0xFF68837E);
+  static Color accentColor = Color(0xFFDABBA7);
+  static Color textDarkColor = Color(0xFF5E5E5E);
 
   @override
   _ShoppingSceneState createState() => _ShoppingSceneState();
@@ -11,6 +15,9 @@ class ShoppingScene extends StatefulWidget {
 
 class _ShoppingSceneState extends State<ShoppingScene> {
   List<String> categories = ["All", "Shoes", "Cars", "Food", "Pets", "Drinks"];
+  List<ShoppingModel> products = [
+    new ShoppingModel("Nike sneekers", 250, AssetImage("images/shoe1.png"))
+  ];
   int selectedCategories = 0;
 
   @override
@@ -95,6 +102,11 @@ class _ShoppingSceneState extends State<ShoppingScene> {
                     ),
                   ],
                 ),
+                ListView.builder(
+                    itemCount: products.length,
+                    itemBuilder: (context, index) {
+                      return ShoppingCard(products[index]);
+                    })
               ],
             ))
           ],
