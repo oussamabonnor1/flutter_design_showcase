@@ -17,15 +17,21 @@ class ShoppingScene extends StatefulWidget {
 class _ShoppingSceneState extends State<ShoppingScene> {
   List<String> categories = ["All", "Shoes", "Cars", "Food", "Pets", "Drinks"];
   List<ShoppingModel> products = [
-    new ShoppingModel("Chery QQ", "Cars", 6083.00 , AssetImage("images/car3.png"), "Cheap", "Practical"),
-    new ShoppingModel("Dacia Logan", "Cars", 12299.99 , AssetImage("images/car2.png"), "Economic", "Spacious"),
-    new ShoppingModel("Nike", "Shoes", 199.99, AssetImage("images/shoe2.png"), "Confortable", "Sportsy"),
-    new ShoppingModel("Nike", "Shoes", 349.99, AssetImage("images/shoe3.png"), "Modern", "Popular"),
-    new ShoppingModel("Peugeot 308", "Cars", 16499.99, AssetImage("images/car1.png"), "Luxerious", "Fast"),
-    new ShoppingModel("Timberland","Shoes", 249.99, AssetImage("images/shoe1.png"), "Robust", "Stylish"),
+    new ShoppingModel("Chery QQ", "Cars", 6083.00,
+        AssetImage("images/car3.png"), "Cheap", "Practical"),
+    new ShoppingModel("Dacia Logan", "Cars", 12299.99,
+        AssetImage("images/car2.png"), "Economic", "Spacious"),
+    new ShoppingModel("Nike", "Shoes", 199.99, AssetImage("images/shoe2.png"),
+        "Confortable", "Sportsy"),
+    new ShoppingModel("Nike", "Shoes", 349.99, AssetImage("images/shoe3.png"),
+        "Modern", "Popular"),
+    new ShoppingModel("Peugeot 308", "Cars", 16499.99,
+        AssetImage("images/car1.png"), "Luxerious", "Fast"),
+    new ShoppingModel("Timberland", "Shoes", 249.99,
+        AssetImage("images/shoe1.png"), "Robust", "Stylish"),
   ];
   int selectedCategories = 0;
-  List<ShoppingModel> currentlyShownProducts = [];
+  String searchedProduct = "";
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +51,9 @@ class _ShoppingSceneState extends State<ShoppingScene> {
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
               child: TextField(
-                onChanged: (text){
-
+                onChanged: (text) {
+                  searchedProduct = text;
+                  setState(() {});
                 },
                 style: TextStyle(color: Colors.white, fontSize: 20),
                 cursorColor: Colors.white,
@@ -82,7 +89,6 @@ class _ShoppingSceneState extends State<ShoppingScene> {
                     scrollDirection: Axis.horizontal,
                     itemCount: categories.length,
                     itemBuilder: (context, index) {
-                      currentlyShownProducts.clear();
                       return index == selectedCategories
                           ? selectedCategoryCard(categories[index])
                           : unselectedCategoryCard(categories[index], index);
@@ -90,49 +96,41 @@ class _ShoppingSceneState extends State<ShoppingScene> {
               ),
             ),
             Expanded(
-                child: Stack(
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    ),
-                    Expanded(
-                      flex: 4,
-                      child: Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(24),
-                          topRight: Radius.circular(24),
-                        )),
+              child: Stack(
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: SizedBox(),
                       ),
-                    ),
-                  ],
-                ),
-                ListView.separated(
-                  separatorBuilder: (context, index) => Divider(
-                    height: getDividerHeight(index),
-                    color: Colors.transparent,
+                      Expanded(
+                        flex: 4,
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(24),
+                            topRight: Radius.circular(24),
+                          )),
+                        ),
+                      ),
+                    ],
                   ),
-                  padding: EdgeInsets.fromLTRB(24, 8, 24, 8),
-                    itemCount: products.length,
-                    itemBuilder: (context, index) {
-                      if(selectedCategories != 0){
-                        if(products[index].tag == categories[selectedCategories]) {
-                          currentlyShownProducts.add(products[index]);
-                          return ShoppingCard(products[index]);
-                        }
-                        else return SizedBox();
-                      }
-                      currentlyShownProducts.add(products[index]);
-                      return ShoppingCard(products[index]);
-                    })
-              ],
-            ),
+                  ListView.separated(
+                      separatorBuilder: (context, index) => Divider(
+                            height: getDividerHeight(index),
+                            color: Colors.transparent,
+                          ),
+                      padding: EdgeInsets.fromLTRB(24, 8, 24, 8),
+                      itemCount: products.length,
+                      itemBuilder: (context, index) {
+                        return getProductCard(index);
+                      })
+                ],
+              ),
             )
           ],
         ),
@@ -190,11 +188,36 @@ class _ShoppingSceneState extends State<ShoppingScene> {
     );
   }
 
-  double getDividerHeight(int index){
-    if(selectedCategories == 0) return 5;
+  Widget getProductCard(int index) {
+    //THIS IS THE SPAGHETTIEST CODE I VE WRITTEN IN YEARS OH DEAR GOD
+    if (selectedCategories != 0) {
+      if (products[index].tag == categories[selectedCategories]) {
+        return ShoppingCard(products[index]);
+      } else
+        return SizedBox();
+    } else {
+      if (searchedProduct == "") {
+        return ShoppingCard(products[index]);
+      } else {
+        if (products[index]
+            .title
+            .toLowerCase()
+            .contains(searchedProduct.toLowerCase()))
+          return ShoppingCard(products[index]);
+        else
+          return SizedBox();
+      }
+    }
+  }
+
+  double getDividerHeight(int index) {
+    if (selectedCategories == 0)
+      return 5;
     else {
-      if(products[index].tag == categories[selectedCategories]) return 5;
-      else return 0;
+      if (products[index].tag == categories[selectedCategories])
+        return 5;
+      else
+        return 0;
     }
   }
 }
