@@ -192,7 +192,17 @@ class _ShoppingSceneState extends State<ShoppingScene> {
     //THIS IS THE SPAGHETTIEST CODE I VE WRITTEN IN YEARS OH DEAR GOD
     if (selectedCategories != 0) {
       if (products[index].tag == categories[selectedCategories]) {
+        if(searchedProduct == "")
         return ShoppingCard(products[index]);
+        else{
+          if (products[index]
+              .title
+              .toLowerCase()
+              .contains(searchedProduct.toLowerCase()))
+            return ShoppingCard(products[index]);
+          else
+            return SizedBox();
+        }
       } else
         return SizedBox();
     } else {
