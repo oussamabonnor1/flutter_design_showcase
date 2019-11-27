@@ -17,7 +17,8 @@ class ShoppingScene extends StatefulWidget {
 class _ShoppingSceneState extends State<ShoppingScene> {
   List<String> categories = ["All", "Shoes", "Cars", "Food", "Pets", "Drinks"];
   List<ShoppingModel> products = [
-    new ShoppingModel("Nike sneekers", 250, AssetImage("images/shoe1.png"), "Confortable", "Stylish")
+    new ShoppingModel("Timberland", 249.99, AssetImage("images/shoe1.png"), "Robust", "Stylish"),
+    new ShoppingModel("Nike", 199.99, AssetImage("images/shoe2.png"), "Confortable", "Sportsy"),
   ];
   int selectedCategories = 0;
 

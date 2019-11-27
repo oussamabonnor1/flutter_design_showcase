@@ -76,14 +76,21 @@ class ShoppingCard extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                      flex: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: 125,
+                          minHeight: 125,
+                        ),
                         child: Image(
                           image: product.productImage,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitWidth,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
