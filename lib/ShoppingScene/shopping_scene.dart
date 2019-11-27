@@ -17,8 +17,9 @@ class ShoppingScene extends StatefulWidget {
 class _ShoppingSceneState extends State<ShoppingScene> {
   List<String> categories = ["All", "Shoes", "Cars", "Food", "Pets", "Drinks"];
   List<ShoppingModel> products = [
-    new ShoppingModel("Timberland", 249.99, AssetImage("images/shoe1.png"), "Robust", "Stylish"),
-    new ShoppingModel("Nike", 199.99, AssetImage("images/shoe2.png"), "Confortable", "Sportsy"),
+    new ShoppingModel("Timberland","Shoes", 249.99, AssetImage("images/shoe1.png"), "Robust", "Stylish"),
+    new ShoppingModel("Nike", "Cars", 199.99, AssetImage("images/shoe2.png"), "Confortable", "Sportsy"),
+    new ShoppingModel("Nike", "Cars", 349.99, AssetImage("images/shoe3.png"), "Modern", "Popular"),
   ];
   int selectedCategories = 0;
 
@@ -104,16 +105,24 @@ class _ShoppingSceneState extends State<ShoppingScene> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
-                  child: ListView.builder(
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
+                ListView.separated(
+                  separatorBuilder: (context, index) => Divider(
+                    height: getDividerHeight(index),
+                    color: Colors.transparent,
+                  ),
+                  padding: EdgeInsets.fromLTRB(24, 8, 24, 8),
+                    itemCount: products.length,
+                    itemBuilder: (context, index) {
+                      if(selectedCategories != 0){
+                        if(products[index].tag == categories[selectedCategories])
                         return ShoppingCard(products[index]);
-                      }),
-                )
+                        else return SizedBox();
+                      }
+                      return ShoppingCard(products[index]);
+                    })
               ],
-            ))
+            ),
+            )
           ],
         ),
       ),
@@ -168,5 +177,13 @@ class _ShoppingSceneState extends State<ShoppingScene> {
         ),
       ),
     );
+  }
+
+  double getDividerHeight(int index){
+    if(selectedCategories == 0) return 0;
+    else {
+      if(products[index].tag == categories[selectedCategories]) return 5;
+      else return 0;
+    }
   }
 }
