@@ -82,7 +82,7 @@ class _ShoppingSceneState extends State<ShoppingScene> {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
+              padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
               child: Container(
                 height: 50,
                 child: ListView.builder(
@@ -112,8 +112,8 @@ class _ShoppingSceneState extends State<ShoppingScene> {
                           color: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(24),
-                            topRight: Radius.circular(24),
+                            topLeft: Radius.circular(26),
+                            topRight: Radius.circular(26),
                           )),
                         ),
                       ),
