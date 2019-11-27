@@ -74,36 +74,39 @@ class _ProductDetailsState extends State<ProductDetails> {
                           child: Card(
                             color: Colors.white,
                             elevation: 10,
-                            child: Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Image(
-                                      image: widget.product.productImage,
-                                      fit: BoxFit.contain,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(8,0,8,0),
+                              child: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12),
+                                      child: Image(
+                                        image: widget.product.productImage,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Image(
-                                      image: widget.product.productImage,
-                                      fit: BoxFit.contain,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12),
+                                      child: Image(
+                                        image: widget.product.productImage,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Image(
-                                      image: widget.product.productImage,
-                                      fit: BoxFit.contain,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12),
+                                      child: Image(
+                                        image: widget.product.productImage,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(26)),
