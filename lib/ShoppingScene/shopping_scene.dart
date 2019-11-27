@@ -104,11 +104,14 @@ class _ShoppingSceneState extends State<ShoppingScene> {
                     ),
                   ],
                 ),
-                ListView.builder(
-                    itemCount: products.length,
-                    itemBuilder: (context, index) {
-                      return ShoppingCard(products[index]);
-                    })
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
+                  child: ListView.builder(
+                      itemCount: products.length,
+                      itemBuilder: (context, index) {
+                        return ShoppingCard(products[index]);
+                      }),
+                )
               ],
             ))
           ],
