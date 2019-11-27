@@ -74,7 +74,37 @@ class _ProductDetailsState extends State<ProductDetails> {
                           child: Card(
                             color: Colors.white,
                             elevation: 10,
-                            child: Row(),
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12),
+                                    child: Image(
+                                      image: widget.product.productImage,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12),
+                                    child: Image(
+                                      image: widget.product.productImage,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12),
+                                    child: Image(
+                                      image: widget.product.productImage,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(26)),
                             margin: EdgeInsets.fromLTRB(32, 8, 32, 8),
@@ -95,8 +125,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     letterSpacing: 2),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 8, 8, 8),
+                                padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
                                 child: Text(
                                   widget.product.info1 +
                                       "\n" +
