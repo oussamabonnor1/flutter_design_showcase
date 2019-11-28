@@ -1,16 +1,23 @@
-# flutter_design_showcase
+# Flutter Design Showcase
 
-A new Flutter application.
+![GitHub license](https://img.shields.io/github/license/oussamabonnor1/JetConverter.svg)
+![Jetlight studio](https://img.shields.io/badge/Made%20by-Jetlight%20studio-blue.svg?color=082544)
 
-## Getting Started
+## Description:
+These are the small pages and scenes i made while exploring flutter. After this, i decided to keep exploring flutter but in more profound ways which requires seperated projects.
 
-This project is a starting point for a Flutter application.
+## Tools & languages: 
+* Android Studio (IDE).
+* Dart (Logic & Design).
+* Flutter (Mobile UI developement kit).
+* Paint.Net (Image editting).
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots: 
+![Profile Scene](Screenshots/Profile.gif) ![Tourism Scene](Screenshots/Tourism.gif)
+![Fitness Scene](Screenshots/Fitness.png) ![Course Scene](Screenshots/Course.gif)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Contribution:
+Feel free to `fork` this project and add whatever you like. If you have any suggestions or any comments please feel free to contact me or to open an issue, use free license art assets please.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Team:
+[Jetlighters](https://github.com/JetLightStudio) having fun.
