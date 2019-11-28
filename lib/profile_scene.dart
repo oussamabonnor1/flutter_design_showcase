@@ -120,7 +120,7 @@ class _ProfileSceneState extends State<ProfileScene> {
                           height: 10,
                         ),
                         Text(
-                          "+$videoCounter",
+                          "+1470",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.amberAccent,
