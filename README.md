@@ -14,7 +14,8 @@ These are the small pages and scenes i made while exploring flutter. After this,
 
 ## Screenshots: 
 ![Profile Scene](Screenshots/Profile.gif) ![Tourism Scene](Screenshots/Tourism.gif)
-![Fitness Scene](Screenshots/Fitness.png) ![Course Scene](Screenshots/Course.gif)
+
+<img src="Screenshots/Fitness.png" width = 250/> ![Course Scene](Screenshots/Course.gif)
 
 ## Contribution:
 Feel free to `fork` this project and add whatever you like. If you have any suggestions or any comments please feel free to contact me or to open an issue, use free license art assets please.
