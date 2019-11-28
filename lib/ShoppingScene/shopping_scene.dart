@@ -23,7 +23,7 @@ class _ShoppingSceneState extends State<ShoppingScene> {
         AssetImage("images/car2.png"), "Economic", "Spacious"),
     new ShoppingModel("Nike", "Shoes", 199.99, AssetImage("images/shoe2.png"),
         "Confortable", "Sportsy"),
-    new ShoppingModel("Nike", "Shoes", 349.99, AssetImage("images/shoe3.png"),
+    new ShoppingModel("Nike Air", "Shoes", 349.99, AssetImage("images/shoe3.png"),
         "Modern", "Popular"),
     new ShoppingModel("Peugeot 308", "Cars", 16499.99,
         AssetImage("images/car1.png"), "Luxerious", "Fast"),

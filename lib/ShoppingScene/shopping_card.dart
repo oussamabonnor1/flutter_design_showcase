@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_design_showcase/ShoppingScene/product_details_scene.dart';
 import 'package:flutter_design_showcase/ShoppingScene/shopping_model.dart';
@@ -12,7 +13,7 @@ class ShoppingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetails(product)));
+        Navigator.push(context, CupertinoPageRoute(builder: (context) => ProductDetails(product)));
       },
       child: Stack(
         children: <Widget>[
@@ -87,9 +88,12 @@ class ShoppingCard extends StatelessWidget {
                         maxHeight: 125,
                         minHeight: 125,
                       ),
-                      child: Image(
-                        image: product.productImage,
-                        fit: BoxFit.contain,
+                      child: Hero(
+                        tag: product.title,
+                        child: Image(
+                          image: product.productImage,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   ),

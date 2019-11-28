@@ -37,8 +37,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(12),
-                  child: Image(
-                    image: widget.product.productImage,
+                  child: Hero(
+                    tag: widget.product.title,
+                    child: Image(
+                      image: widget.product.productImage,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 )),
             Expanded(
